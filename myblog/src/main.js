@@ -6,6 +6,7 @@ import router from './router'
 import Element from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css"
 import axios from 'axios'
+import "@/style/reset.css"
 //axios.defaults.baseURL = "http://pekka.icu/blogvue/"
 Vue.prototype.$axios = axios
 Vue.use(Element)
