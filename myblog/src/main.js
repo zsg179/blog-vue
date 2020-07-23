@@ -7,7 +7,7 @@ import Element from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css"
 import axios from 'axios'
 import "@/style/reset.css"
-//axios.defaults.baseURL = "http://pekka.icu/blogvue/"
+axios.defaults.baseURL = "http://pekka.icu/blog-vue/"
 Vue.prototype.$axios = axios
 Vue.use(Element)
 Vue.config.productionTip = false

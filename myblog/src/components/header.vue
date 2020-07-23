@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-bg"></div>
-    <div class="menu">
+    <div class="menu-wrapper">
       <el-menu
         :default-active="activeIndex"
         mode="horizontal"
@@ -9,6 +9,7 @@
         background-color="burlywood"
         text-color="#fff"
         active-text-color="#ffd04b"
+        class="menu"
       >
         <el-menu-item index="1">首页</el-menu-item>
         <el-submenu index="2">
@@ -47,17 +48,25 @@ export default {
 
 <style scope>
 .header {
-  background-color: #bbffaa;
+  /* 限制最小宽度，防止手机访问变形，暂不考虑响应式 */
+  min-width: 1500px;
 }
 .header .header-bg {
+  /* 头部背景图 */
   background-image: url(../assets/headerBG.jpg);
   height: 204px;
   background-size: 100% 100%;
 }
-.menu {
-  padding-left: 392px;
+/* 导航栏 */
+.menu-wrapper {
+  padding-left: 360px;
   background-color: burlywood;
+  /* 菜单项文字垂直居中 */
   line-height: 60px;
+}
+/* 修改菜单项默认字体大小 */
+.el-menu-item,.el-submenu__title {
+  font-size: 20px;
 }
 .searchInput{
     width: 200px;
@@ -65,3 +74,4 @@ export default {
     margin-right: 50px;
 }
 </style>
+
