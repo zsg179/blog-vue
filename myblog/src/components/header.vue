@@ -19,9 +19,10 @@
         </el-submenu>
         <el-menu-item index="3">java</el-menu-item>
         <el-menu-item index="4">心情随想</el-menu-item>
-        <el-menu-item index="5">归档</el-menu-item>
-        <el-menu-item index="6">留言</el-menu-item>
-        <el-menu-item index="7">关于</el-menu-item>
+        <el-menu-item index="5">其他</el-menu-item>
+        <el-menu-item index="6">归档</el-menu-item>
+        <el-menu-item index="7">留言</el-menu-item>
+        <el-menu-item index="8">关于</el-menu-item>
         <el-input class="searchInput" placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search"></el-input>
       </el-menu>
     </div>
@@ -44,7 +45,7 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
 .header {
   background-color: #bbffaa;
 }
@@ -54,29 +55,13 @@ export default {
   background-size: 100% 100%;
 }
 .menu {
-  padding-left: 400px;
+  padding-left: 392px;
   background-color: burlywood;
-  font-size: 20px;
   line-height: 60px;
 }
 .searchInput{
     width: 200px;
     float: right;
     margin-right: 50px;
-}
-.main {
-  border: black 1px solid;
-  border-top: 0;
-}
-.footer {
-  border: black 1px solid;
-}
-</style>
-
-<style>
-/* 修改默认样式 */
-.el-menu-item,
-.el-submenu__title {
-  font-size: 20px;
 }
 </style>
