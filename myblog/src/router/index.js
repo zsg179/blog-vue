@@ -10,7 +10,7 @@ export default new Router({
       name: 'index',
       component: () => import('@/views/index'),
       meta:{
-        title: '朱树广的个人博客'
+        title: '拾忆往昔的个人博客网站'
       }
     }
   ]

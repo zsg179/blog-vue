@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <div class="header-bg"></div>
+    <div class="header-bg">
+      <div class="header-title">小天地</div>
+    </div>
     <div class="menu-wrapper">
       <el-menu
         :default-active="activeIndex"
@@ -54,8 +56,23 @@ export default {
 .header .header-bg {
   /* 头部背景图 */
   background-image: url(../assets/headerBG.jpg);
-  height: 204px;
+  height: 400px;
   background-size: 100% 100%;
+  position: relative;
+}
+.header .header-title{
+  font-size: 70px;
+  /* 垂直水平居中 */
+  position:absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 500px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
 }
 /* 导航栏 */
 .menu-wrapper {
@@ -68,6 +85,7 @@ export default {
 .el-menu-item,.el-submenu__title {
   font-size: 20px;
 }
+/* 搜索框 */
 .searchInput{
     width: 200px;
     float: right;

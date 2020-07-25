@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <Header></Header>
-    <div class="main ">
+    <div class="main-wrapper">
+      <div class="main">
       <div class="carousel">
         <el-carousel height="300px">
           <el-carousel-item v-for="item in 4" :key="item">
@@ -93,6 +94,8 @@
         </div>
       </div>
     </div>
+    </div>
+    
     <!-- <Footer></Footer> -->
   </div>
 </template>
@@ -113,18 +116,26 @@ export default {
 
 .container {
   background-color: #bbffaa;
-  clear: both;
-  position: relative;
 }
+/* 主内容区外层 */
+.main-wrapper{
+  background-color: #FFFBF0;
+}
+/* 主内容区 */
 .main{
   width: 800px;
-  position:absolute;
-  left: 360px;
+  margin-left: 360px;
+}
+/* 清除浮动 */
+.main::after{
+  content: "";
+  display: table;
+  clear: both;
 }
 .carousel{
   /* 轮播图宽度 */
   width: 533px;
-
+  display: inline-block;
 }
 .el-carousel__item h3 {
   color: #475669;
@@ -139,12 +150,11 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
+/* 推荐文章区 */
 .recommend-article{
-  background-color:yellow;
+  /* background-color:yellow; */
   width: 267px;
-  position:absolute;
-  left: 533px;
-  top: 0;
+  float: right;
 }
 /* 推荐文章标题 */
 .recommend-article .title{
@@ -152,39 +162,52 @@ export default {
   color: #555555;
   padding-top: 10px;
   padding-left: 10px;
+  padding-bottom: 10px;
 }
 /* 分割线 */
 .el-divider--horizontal{
-  margin: 10px 0;
+  margin: 0;
 }
+/* 推荐文章 */
 .recommend-article .articles{
-  height: 430px;
+  height: 469.4px;
 }
+/* 文章 */
+.articles .article{
+  padding: 10px 0;
+}
+.articles .article:hover{
+  background-color: #ffffff;
+}
+/* 文章图片区 */
 .article .article-img{
   display: inline-block;
-
 }
+/* 文章图片 */
 .article .article-img img{
   height: 55px;
 }
+/* 文章信息区 */
 .article .article-info{
   float: right;
   height: 55px;
   width: 186px;
   position: relative;
 }
+/* 文章标题 */
 .article-info .article-title{
-  /* margin-left: -25px; */
   margin-bottom: 10px;
   position:absolute;
   left:10px
 }
+/* 文章发表日期 */
 .article-info .article-date{
   font-size: 13px;
   position:absolute;
   top:42px;
   left: 10px;
 }
+/* 文章阅读量 */
 .article-info .article-hits{
   font-size: 13px;
   position:absolute;
