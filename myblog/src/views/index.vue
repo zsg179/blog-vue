@@ -3,13 +3,15 @@
     <Header></Header>
     <div class="main-wrapper">
       <div class="main">
+        <!-- 轮播图 -->
       <div class="carousel">
-        <el-carousel height="300px">
+        <el-carousel height="400px">
           <el-carousel-item v-for="item in 4" :key="item">
             <h3 class="small">{{ item }}</h3>
           </el-carousel-item>
         </el-carousel>
       </div>
+      <!-- 推荐文章 -->
       <div class="recommend-article">
         <h2 class="title">推荐文章</h2> 
         <el-divider></el-divider>
@@ -93,6 +95,27 @@
           </div>
         </div>
       </div>
+      <!-- 最新文章 -->
+      <div class="newest-articles-wrapper ">
+          <div class="newest-articles-title">
+            最新文章
+          </div>
+          <div class="newest-articles">
+            <div class="newest-article">
+                <div class="newest-article-img">
+                  <img src="../../static/article1.png" alt="ES6的十大特性">
+                </div>
+                <div class="newest-article-info">
+                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                  <div class="newest-article-content">
+                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
     </div>
     </div>
     
@@ -123,8 +146,8 @@ export default {
 }
 /* 主内容区 */
 .main{
-  width: 800px;
-  margin-left: 360px;
+  width: 981px;
+  margin-left: 250px;
 }
 /* 清除浮动 */
 .main::after{
@@ -132,9 +155,11 @@ export default {
   display: table;
   clear: both;
 }
+/* 轮播图 */
 .carousel{
   /* 轮播图宽度 */
-  width: 533px;
+  /* width: 533px;高度300px适配 */
+  width: 712px;
   display: inline-block;
 }
 .el-carousel__item h3 {
@@ -213,6 +238,18 @@ export default {
   position:absolute;
   top: 42px;
   left: 100px
+}
+/* 最新文章区 */
+.newest-articles-wrapper{
+  background-color: yellow;
+  width: 712px;
+}
+.newest-articles-title{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: #DB6D4C solid 5px;
+  font-size: 20px;
+  color: #555555;
 }
 
 

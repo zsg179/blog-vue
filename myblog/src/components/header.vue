@@ -56,7 +56,7 @@ export default {
 .header .header-bg {
   /* 头部背景图 */
   background-image: url(../assets/headerBG.jpg);
-  height: 400px;
+  height: 250px;
   background-size: 100% 100%;
   position: relative;
 }
