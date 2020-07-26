@@ -26,7 +26,7 @@
         <el-menu-item index="6">归档</el-menu-item>
         <el-menu-item index="7">留言</el-menu-item>
         <el-menu-item index="8">关于</el-menu-item>
-        <el-input class="searchInput" placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search"></el-input>
+        <div class="search-input-wrapper"><el-input class="searchInput" placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search"></el-input></div>
       </el-menu>
     </div>
   </div>
@@ -82,14 +82,14 @@ export default {
   line-height: 60px;
 }
 /* 修改菜单项默认字体大小 */
-.el-menu-item,.el-submenu__title {
-  font-size: 20px;
+.menu /deep/ .el-menu-item,.el-submenu__title {
+  font-size: 20px !important;
 }
 /* 搜索框 */
-.searchInput{
-    width: 200px;
-    float: right;
-    margin-right: 50px;
+.search-input-wrapper /deep/ .el-input,.el-input--prefix{
+  width: 200px !important;
+  float: right !important;
+  margin-right: 50px !important;
 }
 </style>
 
