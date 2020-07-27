@@ -12,6 +12,14 @@ export default new Router({
       meta:{
         title: '拾忆往昔的个人博客网站'
       }
+    },
+    {
+      path: '/blog/:blogId',
+      name: 'BlogDetail',
+      component: () => import('@/views/BlogDetail'),
+      meta:{
+        title: '拾忆往昔的个人博客网站'
+      }
     }
   ]
 })

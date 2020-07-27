@@ -4,514 +4,515 @@
     <div class="main-wrapper">
       <div class="main">
         <!-- 轮播图 -->
-      <div class="carousel">
-        <el-carousel height="400px">
-          <el-carousel-item v-for="item in 4" :key="item">
-            <h3 class="small">{{ item }}</h3>
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <!-- 推荐文章 -->
-      <div class="recommend-article">
-        <h2 class="title">推荐文章</h2> 
-        <el-divider></el-divider>
-        <div class="articles">
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="ES6的十大特性">
-              </div>
-              <div class="article-info">
-                <p class="article-title">ES6的十大特性</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
-          </div>
+        <div class="carousel">
+          <el-carousel height="400px">
+            <el-carousel-item v-for="carousel in carousels" :key="carousel">
+              <router-link :to="{name:'BlogDetail',params:{blogId:carousel.blogId}}">
+                <img :src="carousel.img" alt="pekka">
+              </router-link> 
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+        <!-- 推荐文章 -->
+        <div class="recommend-article">
+          <h2 class="title">推荐文章</h2> 
           <el-divider></el-divider>
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="文章2">
-              </div>
-              <div class="article-info">
-                <p class="article-title">文章2</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
-          </div>
-          <el-divider></el-divider>
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="文章3">
-              </div>
-              <div class="article-info">
-                <p class="article-title">文章3</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
-          </div>
-          <el-divider></el-divider>
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="文章4">
-              </div>
-              <div class="article-info">
-                <p class="article-title">文章4</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
-          </div>
-          <el-divider></el-divider>
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="文章5">
-              </div>
-              <div class="article-info">
-                <p class="article-title">文章5</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
-          </div>
-          <el-divider></el-divider>
-          <div class="article">
-            <a href="javascript:;">
-              <div class="article-img">
-                <img src="../../static/article1.png" alt="文章6">
-              </div>
-              <div class="article-info">
-                <p class="article-title">文章6</p>
-                <span class="article-date">2020-7-23</span>
-                <span class="article-hits">200次阅读</span>
-              </div>
-            </a>
+          <div class="articles">
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="ES6的十大特性">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">ES6的十大特性</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
+            <el-divider></el-divider>
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="文章2">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">文章2</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
+            <el-divider></el-divider>
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="文章3">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">文章3</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
+            <el-divider></el-divider>
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="文章4">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">文章4</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
+            <el-divider></el-divider>
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="文章5">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">文章5</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
+            <el-divider></el-divider>
+            <div class="article">
+              <a href="javascript:;">
+                <div class="article-img">
+                  <img src="../../static/article1.png" alt="文章6">
+                </div>
+                <div class="article-info">
+                  <p class="article-title">文章6</p>
+                  <span class="article-date">2020-7-23</span>
+                  <span class="article-hits">200次阅读</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- 最新文章 -->
-      <div class="newest-articles-wrapper ">
-          <div class="newest-articles-title">
-            最新文章
-          </div>
-          <div class="newest-articles">
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
-                  </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
-                      </span>
-                  </div>
-                </div>
+        <!-- 最新文章 -->
+        <div class="newest-articles-wrapper ">
+            <div class="newest-articles-title">
+              最新文章
             </div>
-            <div class="line"></div>
+            <div class="newest-articles">
               <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
-                    </span>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
+                      </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
+              </div>
+              <div class="line"></div>
+                <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
+                  </div>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
+                      </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                      </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="line"></div>
+                <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
+                  </div>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
+                      </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="line"></div>
               <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+              </div>
+              <div class="line"></div>
+              <div class="newest-article">
+                  <div class="newest-article-img">
+                    <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
                   </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                  <div class="newest-article-info">
+                    <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
+                    <div class="newest-article-content">
+                      ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
+                      它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
+                      提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
+                    </div>
+                    <div class="newest-article-other">
+                      <!-- 分类和时间 -->
+                      <span class="class-and-date">
+                        <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
+                        <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
                       </span>
+                      <!-- 留言，点赞 -->
+                      <span class="msg-and-thumbs">
+                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
+                        <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
+                        <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
+                        </span>
+                    </div>
                   </div>
-                </div>
+              </div>
+              <div class="line"></div>
             </div>
-            <div class="line"></div>
-            <div class="newest-article">
-                <div class="newest-article-img">
-                  <a href="javascript:;"><img src="../../static/article1.png" alt="ES6的十大特性"></a>
-                </div>
-                <div class="newest-article-info">
-                  <a href="javascript:;"><p class="newest-article-title">ES6的十大特性</p></a>
-                  <div class="newest-article-content">
-                    ES6（ECMAScript2015）的出现，无疑给前端开发人员带来了新的惊喜，
-                    它包含了一些很棒的新特性，可以更加方便的实现很多复杂的操作，
-                    提高开发人员的效率。实际上, 它是一种新的javascript规范...<a href="javascript:;">[详细]</a>
-                  </div>
-                  <div class="newest-article-other">
-                    <!-- 分类和时间 -->
-                    <span class="class-and-date">
-                      <i class="fa fa-tag"><span class="tag-text"><a class="a-tag" href="javascript:;">Vue</a></span></i>
-                      <i class="fa fa-clock-o"><span class="date-text">2020-07-26</span></i>                   
-                    </span>
-                    <!-- 留言，点赞 -->
-                    <span class="msg-and-thumbs">
-                      <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">17</span></i></a>
-                      <i class="fa fa-eye"><span class="eye-text">5.1k</span></i>
-                      <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">121</span></i></a>
-                      </span>
-                  </div>
-                </div>
-            </div>
-            <div class="line"></div>
-          </div>
+        </div>
       </div>
     </div>
-    </div>
-    
-    <!-- <Footer></Footer> -->
+    <Footer></Footer>
   </div>
 </template>
 
@@ -522,24 +523,34 @@ export default {
   components: { Header ,Footer},
   data() {
     return {
+      blogs:{},//普通博客
+      carousels:{}//轮播图博客
     };
+  },
+  created(){
+    console.log("首页加载。。。")
   }
 };
 </script>
 
 <style>
   @import "../../static/css/font-awesome.min.css";
-  
+
+/* 改变body的滚动条宽度 */
+  body::-webkit-scrollbar{ 
+  width: 15px;
+}
+
 </style>
 
 <style scope>
 
 .container {
-  background-color: #bbffaa;
+  background-color: #FFFBF0;
 }
 /* 主内容区外层 */
 .main-wrapper{
-  background-color: #FFFBF0;
+  /* background-color: #FFFBF0; */
 }
 /* 主内容区 */
 .main{
@@ -558,19 +569,10 @@ export default {
   /* width: 533px;高度300px适配 */
   width: 712px;
   display: inline-block;
+  background-color: yellow;
 }
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
+.el-carousel__item img {
   margin: 0;
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
 }
 /* 推荐文章区 */
 .recommend-article{
