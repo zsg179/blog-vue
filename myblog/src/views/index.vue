@@ -18,20 +18,20 @@
           <h2 class="title">推荐文章</h2> 
           <el-divider></el-divider>
           <div class="articles">
-            <div class="article">
-              <a href="javascript:;">
+            <div class="article" v-for="rBlog in recommendBlogs" :key="rBlog">
+              <router-link :to="{name:'BlogDetail',params:{blogId:rBlog.blogId}}">
                 <div class="article-img">
-                  <img src="../../static/article1.png" alt="ES6的十大特性">
+                  <img :src="rBlog.img" alt="pekka">
                 </div>
                 <div class="article-info">
-                  <p class="article-title">ES6的十大特性</p>
-                  <span class="article-date">2020-7-23</span>
-                  <span class="article-hits">200次阅读</span>
+                  <p class="article-title">{{rBlog.title}}</p>
+                  <span class="article-date">{{rBlog.createdate}}</span>
+                  <span class="article-hits">{{rBlog.hits}}</span>
                 </div>
-              </a>
+              </router-link>
             </div>
             <el-divider></el-divider>
-            <div class="article">
+            <!-- <div class="article">
               <a href="javascript:;">
                 <div class="article-img">
                   <img src="../../static/article1.png" alt="文章2">
@@ -94,7 +94,7 @@
                   <span class="article-hits">200次阅读</span>
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- 最新文章 -->
@@ -523,12 +523,33 @@ export default {
   components: { Header ,Footer},
   data() {
     return {
-      blogs:{},//普通博客
-      carousels:{}//轮播图博客
+      newestBlogs:{},//最新博客
+      carousels:{},//轮播图博客
+      recommendBlogs:{}//推荐博客
     };
   },
   created(){
     console.log("首页加载。。。")
+    this.getCarousels();
+    this.getRBlogs();
+  },
+  methods:{
+    getCarousels(){
+      this.$axios({
+        method: "get",
+        url: "/getCarousels"
+      }).then(res=>{
+        this.carousels = res.data.data;
+      })
+    },
+    getRBlogs(){
+      this.$axios({
+        method: "get",
+        url: "/getRBlogs"
+      }).then(res=>{
+        this.recommendBlogs = res.data.data;
+      })
+    }
   }
 };
 </script>
@@ -598,6 +619,7 @@ export default {
 /* 推荐文章 */
 .recommend-article .articles{
   height: 469.4px;
+  background-color: yellow;
 }
 /* 文章 */
 .articles .article{
