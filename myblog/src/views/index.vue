@@ -6,7 +6,7 @@
         <!-- 轮播图 -->
         <div class="carousel">
           <el-carousel height="400px">
-            <el-carousel-item v-for="cBlog in carouselBlogs" :key="cBlog">
+            <el-carousel-item v-for="(cBlog,index) in carouselBlogs" :key="index">
               <router-link :to="{name:'BlogDetail',params:{blogId:cBlog.id}}">
                 <img :src="cBlog.img" alt="pekka">
               </router-link> 
@@ -18,7 +18,7 @@
           <h2 class="title">推荐文章</h2> 
           <el-divider></el-divider>
           <div class="articles">
-            <div class="article" v-for="rBlog in recommendBlogs" :key="rBlog">
+            <div class="article" v-for="(rBlog,index) in recommendBlogs" :key="index">
               <router-link :to="{name:'BlogDetail',params:{blogId:rBlog.id}}">
                 <div class="article-img">
                   <img :src="rBlog.img" alt="pekka">
@@ -26,11 +26,12 @@
                 <div class="article-info">
                   <p class="article-title">{{rBlog.title}}</p>
                   <span class="article-date">{{rBlog.created}}</span>
-                  <span class="article-views">{{rBlog.views}}</span>
+                  <span class="article-views">{{rBlog.views}}次阅读</span>
                 </div>
               </router-link>
+              <el-divider></el-divider>   
             </div>
-            <el-divider></el-divider>            
+                     
           </div>
         </div>
         <!-- 最新文章 -->
@@ -39,15 +40,14 @@
               最新文章
             </div>
             <div class="newest-articles">
-              <div class="newest-article" v-for="nBlog in newestBlogs" :key="nBlog">
-                <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}">
+              <div class="newest-article" v-for="(nBlog,index) in newestBlogs" :key="index">
                   <div class="newest-article-img">
-                    <a href="javascript:;"><img :src="nBlog.img" alt="pekka"></a>
+                    <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><img :src="nBlog.img" alt="pekka"></router-link>
                   </div>
                   <div class="newest-article-info">
-                    <a href="javascript:;"><p class="newest-article-title">{{nBlog.title}}</p></a>
+                    <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><p class="newest-article-title">{{nBlog.title}}</p></router-link>
                     <div class="newest-article-content">
-                      {{nBlog.summary}}...<a href="javascript:;">[详细]</a>
+                      {{nBlog.summary}}...<router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}">[详细]</router-link>
                     </div>
                     <div class="newest-article-other">
                       <!-- 分类和时间 -->
@@ -57,15 +57,15 @@
                       </span>
                       <!-- 留言，点赞 -->
                       <span class="msg-and-thumbs">
-                        <a class="a-msg" href="javascript:;"><i class="fa fa-comment-o"><span class="msg-text">{{nBlog.comments}}</span></i></a>
+                        <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><i class="fa fa-comment-o"><span class="msg-text">{{nBlog.comments}}</span></i></router-link>
                         <i class="fa fa-eye"><span class="eye-text">{{nBlog.views}}</span></i>
                         <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">{{nBlog.likes}}</span></i></a>
                         </span>
                     </div>
                   </div>
-                </router-link>        
+                  <div class="line"></div>
               </div>
-              <div class="line"></div>
+              
             </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default {
         method: "get",
         url: "/getCBlogs"
       }).then(res=>{
-        this.carouselBlogs = res.data.data;
+        this.carouselBlogs = res.data.carouselBlogs;
       })
     },
     getRBlogs(){
@@ -106,7 +106,7 @@ export default {
         method: "get",
         url: "/getRBlogs"
       }).then(res=>{
-        this.recommendBlogs = res.data.data;
+        this.recommendBlogs = res.data.recommendBlogs;
       })
     },
     getNBlogs(){
@@ -114,7 +114,7 @@ export default {
         method: "get",
         url: "/getNBlogs"
       }).then(res=>{
-        this.newestBlogs = res.data.data;
+        this.newestBlogs = res.data.newestBlogs;
       })
     }
   }
@@ -157,7 +157,7 @@ export default {
   /* width: 533px;高度300px适配 */
   width: 712px;
   display: inline-block;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 .el-carousel__item img {
   margin: 0;
@@ -186,7 +186,7 @@ export default {
 /* 推荐文章 */
 .recommend-article .articles{
   height: 469.4px;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 /* 文章 */
 .articles .article{
@@ -229,7 +229,7 @@ export default {
   font-size: 13px;
   position:absolute;
   top: 42px;
-  left: 100px
+  left: 110px
 }
 /* 最新文章外层 */
 .newest-articles-wrapper{
@@ -269,6 +269,7 @@ export default {
 .line{
   height: 1px;
   background-color: #BFAB86;
+  margin-top: 34px;
 }
 /* 文章标题 */
 .newest-article-title{
