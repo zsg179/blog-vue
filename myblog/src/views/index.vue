@@ -96,7 +96,7 @@ export default {
     getCBlogs(){
       this.$axios({
         method: "get",
-        url: "/getCBlogs"
+        url: "/getCBlogs/"
       }).then(res=>{
         this.carouselBlogs = res.data.carouselBlogs;
       })
@@ -104,7 +104,7 @@ export default {
     getRBlogs(){
       this.$axios({
         method: "get",
-        url: "/getRBlogs"
+        url: "/getRBlogs/"
       }).then(res=>{
         this.recommendBlogs = res.data.recommendBlogs;
       })
@@ -112,7 +112,7 @@ export default {
     getNBlogs(){
       this.$axios({
         method: "get",
-        url: "/getNBlogs"
+        url: "/getNBlogs/"
       }).then(res=>{
         this.newestBlogs = res.data.newestBlogs;
       })
