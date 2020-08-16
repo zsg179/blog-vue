@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-       <Header></Header>
-       详情。。。
+        <Header></Header>
+        心情随想
     </div>
 </template>
 

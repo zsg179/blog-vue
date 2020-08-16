@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-bg">
-      <div class="header-title">小天地</div>
+      <div class="header-title">不在能知，乃在能行</div>
     </div>
     <div class="menu-wrapper">
       <el-menu
@@ -13,20 +13,17 @@
         active-text-color="#ffd04b"
         class="menu"
       >
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">前端</template>
-          <el-menu-item index="2-1">Vue</el-menu-item>
-          <el-menu-item index="2-2">Elementui</el-menu-item>
-          <el-menu-item index="2-3">Vant</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3">java</el-menu-item>
-        <el-menu-item index="4">心情随想</el-menu-item>
-        <el-menu-item index="5">其他</el-menu-item>
-        <el-menu-item index="6">归档</el-menu-item>
-        <el-menu-item index="7">留言</el-menu-item>
-        <el-menu-item index="8">关于</el-menu-item>
-        <div class="search-input-wrapper"><el-input class="searchInput" placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search"></el-input></div>
+        <el-menu-item index="0"><router-link :to="{name:'index',params:{tagId:'0'}}">首页</router-link></el-menu-item>
+        <el-menu-item index="1"><router-link :to="{name:'HeadPage',params:{tagId:'1'}}">前端</router-link></el-menu-item>
+        <el-menu-item index="2"><router-link :to="{name:'JavaPage',params:{tagId:'2'}}">java</router-link></el-menu-item>
+        <el-menu-item index="3"><router-link :to="{name:'EmotionPage',params:{tagId:'3'}}">心情随想</router-link></el-menu-item>
+        <el-menu-item index="4"><router-link :to="{name:'OtherPage',params:{tagId:'4'}}">其他</router-link></el-menu-item>
+        <el-menu-item index="5"><router-link :to="{name:'FilePage',params:{tagId:'5'}}">归档</router-link></el-menu-item>
+        <el-menu-item index="6"><router-link :to="{name:'MessagePage',params:{tagId:'6'}}">留言</router-link></el-menu-item>
+        <el-menu-item index="7"><router-link :to="{name:'About',params:{tagId:'7'}}">关于</router-link></el-menu-item>
+        <el-input placeholder="请输入内容" v-model="search" class="input-with-select">
+          <el-button slot="prepend" icon="el-icon-search"></el-button>
+        </el-input>
       </el-menu>
     </div>
   </div>
@@ -36,19 +33,22 @@
 export default {
   data() {
     return {
-      activeIndex: "1",
-      search:""
+      activeIndex: "0",
+      search: "",
     };
   },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
+  created(){
+    //切换导航栏激活状态
+    this.activeIndex = this.$route.params.tagId == undefined ? "0" : this.$route.params.tagId;
   }
+  ,
+  methods: {
+    handleSelect(key, keyPath) {},
+  },
 };
 </script>
 
-<style scope>
+<style scoped>
 .header {
   /* 限制最小宽度，防止手机访问变形，暂不考虑响应式 */
   min-width: 1500px;
@@ -60,16 +60,16 @@ export default {
   background-size: 100% 100%;
   position: relative;
 }
-.header .header-title{
+.header .header-title {
   font-size: 70px;
   /* 垂直水平居中 */
-  position:absolute;
+  position: absolute;
   margin: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 500px;
+  width: 700px;
   height: 200px;
   line-height: 200px;
   text-align: center;
@@ -82,14 +82,17 @@ export default {
   line-height: 60px;
 }
 /* 修改菜单项默认字体大小 */
-.menu /deep/ .el-menu-item,.el-submenu__title {
-  font-size: 20px !important;
+.menu >>> .el-menu-item {
+  font-size: 20px;
+}
+.el-menu--horizontal >>> .el-submenu__title {
+  font-size: 20px;
 }
 /* 搜索框 */
-.search-input-wrapper /deep/ .el-input,.el-input--prefix{
-  width: 200px !important;
-  float: right !important;
-  margin-right: 50px !important;
+.menu >>> .el-input {
+  width: 250px;
+  margin-left: 150px;
+  font-size: 14px;
 }
 </style>
 

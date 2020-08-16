@@ -13,27 +13,7 @@
             </el-carousel-item>
           </el-carousel>
         </div>
-        <!-- 推荐文章 -->
-        <div class="recommend-article">
-          <h2 class="title">推荐文章</h2> 
-          <el-divider></el-divider>
-          <div class="articles">
-            <div class="article" v-for="(rBlog,index) in recommendBlogs" :key="index">
-              <router-link :to="{name:'BlogDetail',params:{blogId:rBlog.id}}">
-                <div class="article-img">
-                  <img :src="rBlog.img" alt="pekka">
-                </div>
-                <div class="article-info">
-                  <p class="article-title">{{rBlog.title}}</p>
-                  <span class="article-date">{{rBlog.created}}</span>
-                  <span class="article-views">{{rBlog.views}}次阅读</span>
-                </div>
-              </router-link>
-              <el-divider></el-divider>   
-            </div>
-                     
-          </div>
-        </div>
+        <Right></Right>
         <!-- 最新文章 -->
         <div class="newest-articles-wrapper ">
             <div class="newest-articles-title">
@@ -42,12 +22,12 @@
             <div class="newest-articles">
               <div class="newest-article" v-for="(nBlog,index) in newestBlogs" :key="index">
                   <div class="newest-article-img">
-                    <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><img :src="nBlog.img" alt="pekka"></router-link>
+                    <router-link target="_blank" :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><img :src="nBlog.img" alt="pekka"></router-link>
                   </div>
                   <div class="newest-article-info">
-                    <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><p class="newest-article-title">{{nBlog.title}}</p></router-link>
+                    <router-link target="_blank" :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><p class="newest-article-title">{{nBlog.title}}</p></router-link>
                     <div class="newest-article-content">
-                      {{nBlog.summary}}...<router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}">[详细]</router-link>
+                      {{nBlog.summary}}...<router-link target="_blank" :to="{name:'BlogDetail',params:{blogId:nBlog.id}}">[详细]</router-link>
                     </div>
                     <div class="newest-article-other">
                       <!-- 分类和时间 -->
@@ -57,13 +37,12 @@
                       </span>
                       <!-- 留言，点赞 -->
                       <span class="msg-and-thumbs">
-                        <router-link :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><i class="fa fa-comment-o"><span class="msg-text">{{nBlog.comments}}</span></i></router-link>
+                        <router-link target="_blank" :to="{name:'BlogDetail',params:{blogId:nBlog.id}}"><i class="fa fa-comment-o"><span class="msg-text">{{nBlog.comments}}</span></i></router-link>
                         <i class="fa fa-eye"><span class="eye-text">{{nBlog.views}}</span></i>
                         <a class="a-thumbs" href="javascript:;"><i class="fa fa-thumbs-o-up"><span class="thumbs-text">{{nBlog.likes}}</span></i></a>
                         </span>
                     </div>
                   </div>
-                  <div class="line"></div>
               </div>
               
             </div>
@@ -77,19 +56,17 @@
 <script>
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Right from "../components/right";
 export default {
-  components: { Header ,Footer},
+  components: { Header ,Footer,Right},
   data() {
     return {
       newestBlogs:{},//最新博客
       carouselBlogs:{},//轮播图博客
-      recommendBlogs:{}//推荐博客
     };
   },
   created(){
-    console.log("首页加载。。。")
     this.getCBlogs();
-    this.getRBlogs();
     this.getNBlogs();
   },
   methods:{
@@ -99,14 +76,6 @@ export default {
         url: "/getCBlogs/"
       }).then(res=>{
         this.carouselBlogs = res.data.carouselBlogs;
-      })
-    },
-    getRBlogs(){
-      this.$axios({
-        method: "get",
-        url: "/getRBlogs/"
-      }).then(res=>{
-        this.recommendBlogs = res.data.recommendBlogs;
       })
     },
     getNBlogs(){
@@ -131,19 +100,20 @@ export default {
 
 </style>
 
-<style scope>
+<style scoped>
 
 .container {
   background-color: #FFFBF0;
 }
 /* 主内容区外层 */
 .main-wrapper{
-  /* background-color: #FFFBF0; */
+  /* background-color: #F1F1F1; */
 }
 /* 主内容区 */
 .main{
-  width: 981px;
-  margin-left: 250px;
+  width: 1000px;
+  margin: 20px auto;
+  /* background-color: #ffffff; */
 }
 /* 清除浮动 */
 .main::after{
@@ -160,77 +130,10 @@ export default {
   /* background-color: yellow; */
 }
 .el-carousel__item img {
+  width: 100%;
   margin: 0;
 }
-/* 推荐文章区 */
-.recommend-article{
-  /* background-color:yellow; */
-  width: 267px;
-  float: right;
-}
-/* 推荐文章标题 */
-.recommend-article .title{
-  font-size: 20px;
-  color: #555555;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-/* 分割线 */
-.articles /deep/ .el-divider--horizontal{
-  margin: 0 !important;
-}
-.recommend-article /deep/ .el-divider--horizontal{
-  margin: 0 !important;
-}
-/* 推荐文章 */
-.recommend-article .articles{
-  height: 469.4px;
-  /* background-color: yellow; */
-}
-/* 文章 */
-.articles .article{
-  padding: 10px 0;
-}
-.articles .article:hover{
-  background-color: #ffffff;
-}
-/* 文章图片区 */
-.article .article-img{
-  display: inline-block;
-}
-/* 文章图片 */
-.article .article-img img{
-  height: 55px;
-  overflow: hidden;
-}
-/* 文章信息区 */
-.article .article-info{
-  float: right;
-  height: 55px;
-  width: 186px;
-  position: relative;
-}
-/* 文章标题 */
-.article-info .article-title{
-  margin-bottom: 10px;
-  position:absolute;
-  left:10px
-}
-/* 文章发表日期 */
-.article-info .article-date{
-  font-size: 13px;
-  position:absolute;
-  top:42px;
-  left: 10px;
-}
-/* 文章阅读量 */
-.article-info .article-views{
-  font-size: 13px;
-  position:absolute;
-  top: 42px;
-  left: 110px
-}
+
 /* 最新文章外层 */
 .newest-articles-wrapper{
   /* background-color: yellow; */
@@ -246,8 +149,9 @@ export default {
 }
 /* 最新文章区 */
 .newest-article{
-  height: 170px;
-  padding: 25px 0;
+  height: 153px;
+  padding: 30px 0;
+  border-bottom: 1px #BFAB86 solid;
 }
 .newest-article:hover{
   background-color: #ffffff;
@@ -264,12 +168,6 @@ export default {
 .newest-article .newest-article-info{
   float: right;
   width: 470px
-}
-/* 分割线 */
-.line{
-  height: 1px;
-  background-color: #BFAB86;
-  margin-top: 34px;
 }
 /* 文章标题 */
 .newest-article-title{

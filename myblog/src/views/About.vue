@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-       <Header></Header>
-       详情。。。
+        <Header></Header>
+        关于
     </div>
 </template>
 
